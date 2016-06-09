@@ -5,12 +5,13 @@ swagger: '2.0'
 
 # This is your document metadata
 info:
-  version: "1.0.0"
   title: Bargain Bee API
-
+  description: Move your app forward with the Bargain API
+  version: "1.0.0"
+# will be prefixed to all paths
+basePath: /v1
 # Describe your paths here
-
-  # This is a path endpoint. Change it.
+# This is a path endpoint. Change it.
 paths:
   /campaigns:
     get:
