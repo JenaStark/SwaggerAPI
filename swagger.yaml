@@ -18,6 +18,8 @@ paths:
       summary: All campaigns
       description: |
         Returns all campaigns that were entered the system
+      tags:
+        - Campaigns
       responses:
         200:
           description: An array of campaigns
@@ -28,6 +30,8 @@ paths:
     post:
       summary: Add a new campaign 
       description: ""
+      tags:
+        - Campaigns
       parameters:
         - in: body
           name: body
@@ -43,6 +47,8 @@ paths:
       summary: All Users
       description: |
         Returns all users in the system
+      tags:
+        - Users
       responses:
         200:
           description: An array of users
@@ -53,6 +59,8 @@ paths:
     post:
       summary: Add a new user 
       description: ""
+      tags:
+        - Users
       parameters:
         - in: body
           name: body
@@ -75,6 +83,9 @@ paths:
         required: true
         type: integer
         format: int16
+        default: 1
+        minimum: 1
+        maximum: 3
       responses:
         200:
           description: An array of users
@@ -87,6 +98,8 @@ paths:
       summary: Show Campaign Promotions
       description: |
         Returns all Promotions associated with a campaign
+      tags:
+        - Promotions
       parameters:
         - in: path
           name: id
@@ -104,6 +117,8 @@ paths:
     post:
       summary: Add a new promotion to the campaign
       description: ""
+      tags:
+        - Promotions
       parameters:
         - in: path
           name: id
@@ -120,20 +135,22 @@ paths:
       responses:
         "405":
           description: Invalid input
-  /campaigns/{id}/promotions/{pID}:
+  /campaigns/{campID}/promotions/{promoID}:
     get:
       summary: Show one Promotion
       description: |
         Returns a Promotion associated with a campaign
+      tags:
+        - Promotions
       parameters:
         - in: path
-          name: id
+          name: campID
           description: ID of campaign that needs to be fetched
           required: true
           type: integer
           format: int64
         - in: path
-          name: pID
+          name: promoID
           description: ID of promotion that needs to be fetched
           required: true
           type: integer
